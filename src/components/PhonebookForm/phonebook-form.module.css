@@ -1,0 +1,23 @@
+.formGroup {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.btn {
+  background-color: transparent;
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 5px;
+  cursor: pointer;
+  color: green;
+  border: 1px solid green;
+}
+
+.btn:hover,
+.btn:focus {
+  color: white;
+  border-color: black;
+  background-color: green;
+}
