@@ -1,6 +1,4 @@
 .formGroup {
-  /* display: grid;
-  grid-template-columns: 100px 1fr; */
   display: flex;
   flex-direction: column;
   gap: 15px;
