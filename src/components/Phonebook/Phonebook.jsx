@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
 import { Report } from 'notiflix/build/notiflix-report-aio';
 
@@ -9,8 +9,15 @@ import PhonebookForm from 'components/PhonebookForm/PhonebookForm';
 import styles from './phonebook.module.css';
 
 const PhoneBook = () => {
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useState(() => {
+    const contacts = JSON.parse(localStorage.getItem('contacts'));
+    return contacts ? contacts : [];
+  });
   const [filter, setFilter] = useState('');
+
+  useEffect(() => {
+    localStorage.setItem('contacts', JSON.stringify(contacts));
+  }, [contacts]);
 
   const isDublicate = (name, number) => {
     const normilizedName = name.toLowerCase();
